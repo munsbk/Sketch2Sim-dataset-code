@@ -1,0 +1,107 @@
+/* Navbar style start */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  background: linear-gradient(90deg, #2196F3, #42A5F5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav {
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px 20px; /* reduced height */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav ul li {
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #2196F3;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Active Page Highlight */
+nav ul li a[href="/About"] {
+  color: #6a1b9a;
+  
+  border-bottom: 2px solid #6a1b9a;
+}
+/* Default link style */
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover underline animation */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #2196F3;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Active Page Highlight */
+nav ul li a.active {
+  color: #6a1b9a;
+  font-weight: 600;
+  border-bottom: 2px solid #6a1b9a;
+}
+
+/* Make sure only one active at a time */
+nav ul li a:not(.active) {
+  color: #000 !important;
+  border-bottom: none !important;
+}
+
+
+/* Navbar style end */

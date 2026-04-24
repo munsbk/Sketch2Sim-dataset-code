@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 style="text-align: center;">Automatic Interpretation and Solving of Hand-drawn Circuits</h1>
+
+<!-- Upload Area -->
+<form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+  <div class="upload-row">
+    <div class="drop-zone" id="dropZone">
+      <span id="dropText">Drag & drop or click to select</span>
+      <input type="file" name="file" id="fileInput" style="display:none;">
+      <div id="fileName" class="file-name"></div>
+    </div>
+    <button type="submit" id="uploadButton">Upload</button>
+  </div>
+</form>
+
+
+
+  <!-- Spinner -->
+  <div class="spinner" id="spinner"></div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">✅ Circuit processed successfully!</div>
+
+  {% if result %}
+  <div class="image-row">
+    <div class="image-box">
+      <h4>Processed Image</h4>
+      <img src="{{ result[1] }}" alt="Processed">
+    </div>
+    <div class="image-box">
+      <h4>Annotated Image</h4>
+      <img src="{{ result[2] }}" alt="Annotated">
+    </div>
+  </div>
+
+  <div class="text-row">
+    <div class="text-box">
+      <h2>Netlist</h2>
+      <textarea id="netlistInput">{{ result[0] }}</textarea>
+    </div>
+    <div class="text-box">
+      <div style="padding: 8px;">
+        <button onclick="solveCircuit()">Solve Circuit</button>
+      </div>
+      <pre id="output">Waiting for netlist...</pre>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Automatic Interpretation and Solving of Hand-drawn Circuits</title>
+  <link rel="stylesheet" href="{{  url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" href="{{  url_for('static', filename='css/navba.css') }}">
+</head>
+<body>
+
+<!-- Nov bar start -->
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/About">About</a></li>
+        <li><a href="/Services">Services</a></li>
+        <li><a href="/Contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+
+<!-- Nav bar End -->
+
+  <h1 style="text-align: center;">Automatic Interpretation and Solving of Hand-drawn Circuits</h1>
+
+  <form action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
+
+  {% if result %}
+  <div class="image-row">
+    <div class="image-box">
+      <h4>Processed Image</h4>
+      <img src="{{ result[1] }}" alt="Processed">
+    </div>
+    <div class="image-box">
+      <h4>Annotated Image</h4>
+      <img src="{{ result[2] }}" alt="Annotated">
+    </div>
+  </div>
+  {% endif %}
+  {% if result %}
+  <div class="text-row">
+    <div class="text-box">
+        <h2>Netlist Code</h2>
+        <textarea id="netlistInput">{% if result %}{{ result[0] }}{% endif %}</textarea>
+
+    </div>
+    <div class="text-box">
+      <div style="padding: 8px;">
+        <button onclick="solveCircuit()">Solve Circuit</button>
+      </div>
+        
+        <pre id="output">Waiting for netlist...</pre>
+    </div>
+  </div>
+  
+  
+
+  <br><br>
+  <!-- <div class="drow">
+    <button onclick="drawCircuit()">Draw Circuit</button> <br>
+    <canvas id="circuitCanvas" width="900" height="500"></canvas>
+  </div> -->
+  
+  {% endif %}
+
+<script src="script/index.js"></script>
+</body>
+</html>
+
