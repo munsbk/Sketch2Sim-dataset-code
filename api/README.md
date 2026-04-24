@@ -19,9 +19,8 @@ The API performs the following tasks:
 ## 📂 Folder Structure
 
 ```text
-api/
-├── app.py                # Main Flask application
-├── run.py                # Entry script (if used)
+api/               
+├── run.py                # Main Flask application
 ├── model.py              # Model loading and inference logic
 ├── requirements.txt      # Python dependencies
 ├── README.md
